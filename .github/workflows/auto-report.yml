@@ -1,0 +1,36 @@
+name: Auto Report
+
+on:
+  schedule:
+    - cron: '15 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  Report:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+    - name: Setup cache
+      uses: actions/cache@v3
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    - name: Setup timezone
+      uses: zcong1993/setup-timezone@v1.1.2
+      with:
+        timezone: Asia/Shanghai
+    - name: Setup chromedriver
+      uses: nanasess/setup-chromedriver@v1.0.1
+    - name: Checkout
+      uses: actions/checkout@v3.0.0
+    - name: Install dependencies
+      run: yarn install
+    - name: Run script
+      run: yarn start
+      env:
+        PSWD: ${{ secrets.PSWD }}
