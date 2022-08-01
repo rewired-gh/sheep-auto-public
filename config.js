@@ -21,10 +21,10 @@ const config = {
   statusCode: "99", // “当前状况” 对应的代码，参见 main.js 中的 statusMap
   geolocation: {
     // 需要上报的地理位置信息
-    // 请通过此网页获取经纬度：https://lbs.amap.com/tools/picker
+    // 请通过此网页获取经纬度（此网页采用先经度后纬度的表示法）：https://lbs.amap.com/tools/picker
     // 请通过此网页获取准确的地理位置表述：https://lbs.amap.com/demo/Javascript-api/example/district-search/city-drop-down-list
-    latitude: "11.451400",
     longitude: "191.981000",
+    latitude: "11.451400",
     province: "你的省", // 省市区（省级行政区）
     city: "你的市", // 地级市（地级行政区）
     district: "你的区", // 区县（县级行政区）
