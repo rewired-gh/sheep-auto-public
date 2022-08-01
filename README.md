@@ -11,6 +11,6 @@
 ## 使用方法
 
 1. 为了保障您的隐私，建议 import 该仓库到您的个人 private 仓库（**可点击 'Use this template' 按钮来完成**） ，详见[ GitHub 文档](https://docs.github.com/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)。（值得注意的是，与 fork 相比，这种方法与上游仓库更新时需要手动操作）
-2. 自定义 `config.js` 和 GitHub Action。
-3. 添加「统一身份认证」密码到仓库的 secret 中（secret 名为 `PSWD`）。
-4. 大功告成！
+2. 自定义 `config.js` 和 GitHub Action。（必须修改的配置项：`username`、`geolocation`，其他配置项可按需修改）
+4. 添加「统一身份认证」密码到仓库的 secret 中（secret 名为 `PSWD`）。
+5. 大功告成！
